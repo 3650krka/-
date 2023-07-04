@@ -1,0 +1,183 @@
+<html>
+<head>
+  <style>
+    body {
+      background-color: pink;
+      font-family: "Microsoft YaHei";
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+    }
+
+    .left-section {
+      width: 50%;
+      margin-right: 20px;
+    }
+
+    .right-section {
+      width: 50%;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .search-input {
+      width: 60%;
+      height: 40px;
+      border: none;
+      border-radius: 20px;
+      padding-left: 20px;
+      font-size: 20px;
+    }
+
+    .search-button {
+      width: 80px;
+      height: 40px;
+      border: none;
+      border-radius: 20px;
+      margin-left: 10px;
+      background-color: white;
+      color: black;
+      font-size: 20px;
+    }
+
+    .material {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .video {
+      position: relative;
+      margin-top: 20px;
+    }
+
+    .video-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.8);
+    }
+
+    .play-icon {
+      width: 40px;
+      height: 40px;
+      margin-left: 20px;
+    }
+
+    .video-title {
+      margin-top: 10px;
+      font-size: 24px;
+    }
+
+    .stamp {
+       position; absolute; 
+       bottom-right; -10px; 
+       right; -10px; 
+       width; 120px; 
+       height; auto; 
+       transform; rotate(15deg); 
+       z-index; -1; 
+     }
+   </style>
+ </head>
+ <body>
+   <div class="container">
+     <div class="left-section">
+       <div class="title">融媒体页面示例</div>
+       <div class="search-bar">
+         <input type="text" class="search-input" placeholder="请输入关键词">
+         <button type="button" class="search-button">搜索</button>
+       </div>
+       <div class="material">这是一段关于融媒体的介绍，你可以在这里写一些内容。</div>
+       <div class="material">这是另一段关于融媒体的介绍，你可以在这里写一些内容。</div>
+       <div class="video">
+         <img src="video3.jpg" class="video-image">
+         <div class="play-button">
+           <img src="play.png" class="play-icon">
+         </div>
+         <div class="video-title">融媒体的实践案例和经验分享</div>
+       </div>
+     </div>
+     <div class="right-section">
+       <div class="video">
+         <img src="video1.jpg" class="video-image">
+         <div class="play-button">
+           <img src="play.png" class="play-icon">
+         </div>
+         <div class="video-title">融媒体的定义和特点</div>
+       </div>
+       <div class="material">这是一段关于融媒体的定义和特点的材料，你可以在这里写一些内容。</div>
+       <div class="video">
+         <img src="video2.jpg" class="video-image">
+         <div class="play-button">
+           <img src="play.png" class="play-icon">
+         </div>
+         <div class="video-title">融媒体的发展历程和趋势</div>
+       </div>
+       <div class="material">这是一段关于融媒体的发展历程和趋势的材料，你可以在这里写一些内容。</div>
+     </div>
+     <img src="stamp.png" class="stamp">
+   </div>
+   <script>
+     // 获取所有的视频元素
+var videos = document.getElementsByClassName("video");
+
+// 遍历每个视频元素，为它们添加点击事件
+for (var i = 0; i < videos.length; i++) {
+  videos[i].addEventListener("click", function() {
+    // 获取当前点击的视频的图片和标题
+    var videoImage = this.querySelector(".video-image").src;
+    var videoTitle = this.querySelector(".video-title").textContent;
+
+    // 创建一个新的窗口，用来播放视频
+    var videoWindow = window.open("", "videoWindow", "width=800, height=600");
+
+    // 在新窗口中添加一个视频播放器，设置它的源为图片的源，设置它的标题为标题
+    videoWindow.document.write("<h1>" + videoTitle + "</h1>");
+    videoWindow.document.write("<video src='" + videoImage + "' controls autoplay></video>");
+  });
+}
+
+// 获取搜索框和搜索按钮
+var searchInput = document.querySelector(".search-input");
+var searchButton = document.querySelector(".search-button");
+
+// 为搜索按钮添加点击事件
+searchButton.addEventListener("click", function() {
+  // 获取搜索框中输入的关键词
+  var keyword = searchInput.value;
+
+  // 如果关键词不为空，就跳转到百度搜索结果页面，否则提示用户输入关键词
+  if (keyword) {
+    window.location.href = "https://www.baidu.com/s?wd=" + keyword;
+  } else {
+    alert("请输入关键词");
+  }
+});
+   </script>
+ </body>
+</html>
+
+```
