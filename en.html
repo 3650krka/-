@@ -1,0 +1,374 @@
+<html>
+<head>
+  <style>
+    body {
+      background-color: #1bafd0;
+      font-family: "Microsoft Song";
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+    }
+
+    .left-section {
+      width: 70%;
+      margin-right: 50px;
+    }
+
+    .right-section {
+      width: 70%;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .title2 {
+      background-color: #88eaeb;
+      text-align: center;
+      border-radius: 25px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 35px;
+      margin-bottom: 15px;
+      marquee-style: scroll;
+      marquee-direction: alternate;
+      overflow: auto;
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .search-input {
+      width: 60%;
+      height: 40px;
+      border: none;
+      border-radius: 20px;
+      padding-left: 20px;
+      font-size: 20px;
+    }
+
+    .search-button {
+      width: 80px;
+      height: 40px;
+      border: none;
+      border-radius: 20px;
+      margin-left: 10px;
+      background-color: white;
+      color: black;
+      font-size: 20px;
+    }
+
+    .material {
+      background-color: #fb00ff3d;
+      margin-top: 20px;
+      font-size: 18px;
+      border-radius: 25px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 35px;
+      margin-bottom: 15px;
+      overflow: auto;
+    }
+
+    .video {
+      position: relative;
+      margin-top: 20px;
+    }
+
+    .video-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.8);
+    }
+
+    .play-icon {
+      width: 40px;
+      height: 40px;
+      margin-left: 20px;
+    }
+
+    .video-title {
+      margin-top: 10px;
+      text-align: center;
+      font-size: auto;
+    }
+
+    .stamp {
+       position; absolute; 
+       bottom-right; -10px; 
+       right; -10px; 
+       width; 120px; 
+       height; auto; 
+       transform; rotate(15deg); 
+       z-index; -1; 
+     }
+     #popup-button {
+      display: none; /* 隐藏弹窗 */
+      overflow: auto; /* 允许滚动 */
+      border-radius: 25px;
+      background-color: #4c6e29b6; /* 背景颜色 */
+      border: none; /* 去掉边框 */
+      color: white; /* 字体颜色 */
+      padding: 16px 32px; /* 内边距 */
+      text-align: center; /* 文字居中 */
+      text-decoration: none; /* 去掉下划线 */
+      display: block;
+      margin: 0 auto;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.6s; /* 过渡效果持续时间 */
+      cursor: pointer;
+}
+p{text-indent: 50px;}
+/* 弹窗容器的样式 */
+#popup {
+  z-index: 9999;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto; /* 允许滚动 */
+  width: auto;
+  height: auto;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed; /* 使用固定定位 */
+  top: 50%; /* 距离顶部50% */
+  left: 50%; /* 距离左边50% */
+  transform: translate(-50%, -50%); /* 使用变换，将弹窗居中 */
+  display: none; /* 默认隐藏弹窗 */
+}
+
+/* 弹窗内容的样式 */
+#popup-content {
+  padding: 20px;
+}
+
+/* 弹窗关闭按钮的样式 */
+#popup-close {
+  width: 36px;
+  height: 36px;
+  background-color: rgb(181, 111, 111);
+  border: none;
+  position: absolute; /* 使用绝对定位 */
+  top: 0px; /* 距离顶部-10px */
+  right: 0px; /* 距离右边-10px */
+}
+#popup-button2 {
+      display: none; /* 隐藏弹窗 */
+      overflow: auto; /* 允许滚动 */
+      border-radius: 25px;
+      background-color: #4c6e29b6; /* 背景颜色 */
+      border: none; /* 去掉边框 */
+      color: white; /* 字体颜色 */
+      padding: 16px 32px; /* 内边距 */
+      text-align: center; /* 文字居中 */
+      text-decoration: none; /* 去掉下划线 */
+      display: block;
+      margin: 0 auto;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.6s; /* 过渡效果持续时间 */
+      cursor: pointer;
+}
+p{text-indent: 50px;}
+/* 弹窗容器的样式 */
+#popup2 {
+  z-index: 9999;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto; /* 允许滚动 */
+  width: auto;
+  height: auto;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed; /* 使用固定定位 */
+  top: 50%; /* 距离顶部50% */
+  left: 50%; /* 距离左边50% */
+  transform: translate(-50%, -50%); /* 使用变换，将弹窗居中 */
+  display: none; /* 默认隐藏弹窗 */
+}
+
+/* 弹窗内容的样式 */
+#popup-content2 {
+  padding: 20px;
+}
+
+/* 弹窗关闭按钮的样式 */
+#popup-close2 {
+  width: 36px;
+  height: 36px;
+  background-color: rgb(181, 111, 111);
+  border: none;
+  position: absolute; /* 使用绝对定位 */
+  top: 0px; /* 距离顶部-10px */
+  right: 0px; /* 距离右边-10px */
+}
+     #popup-button:hover {
+      background-color: #3e8e41;
+     }
+
+</style>
+</head>
+   <a href="index.html" style="position: absolute;text-align: center; top: 0; right: 0; display: block; width: 100px; height: 50px; background-color: blue; color: white; center; line-height: 50px;">中文</a>
+   <div class="title">Ocean Guardian - Namibia Marine Conservation Team</div><br><br>
+   <div class="title2"><marquee>Hi everyone! We are Ocean Conservancy Namibia (OCN), an NGO established in Walvis Bay, Namibia.
+   About 1.5 million rare sea lions live along the coast of Namibia. They are threatened by illegally discarded fishing gear and other marine debris entangled and tortured to death.
+   Our main goal is to end the problem of entanglement of marine wildlife on our coasts. Currently our team is led by Namibian conservationist Nord Dreyer and consists of three dedicated activists.
+   The more attention we get, the easier it is to change the status quo for sea lions. Thanks for watching, subscribing to our channel and sharing our message, the power of social media is helping us continue and perfect our work. thank you all!
+   </marquee></div><br><br>
+<body>
+  <div class="container">
+    <div class="left-section">
+      <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Please enter keywords">
+        <button type="button" class="search-button">Search</button>
+      </div>
+      <div class="material">Article: World Environment Day - Meet the Namibian Sea Guardians who help sea lions out of trouble<br>
+      <div style="display: flex; align-items: center; justify-content: center"><button id="popup-button" onclick="document.getElementById('myModal').style.display='block' ">View full text</button></div></div>
+     <!-- popup container -->
+     <div id="popup">
+       <!-- popup close button -->
+       <button id="popup-close">X</button>
+       <!-- popup content -->
+       <div id="popup-content">
+       <h3><div style="text-align:center">World Environment Day——Meet the Namibian Ocean Guardian who helped sea lions out of trouble<br>Author: Ma Peimin Source: International Online</div></h3>
+       <p style="text-indent: 2em;">Today (June 5) is World Environment Day, and this year World Environment Day focuses on solutions to plastic pollution. In the coastal areas of Namibia, there are about 1.5 million sea lions living. The marine garbage generated by human economic and social activities seriously threatens the living environment of these marine animals. Discarded plastic, once wrapped around a sea lion's neck, is hard to come off. How can local environmental groups help these sea lions get out of trouble? </p>
+       <p style="text-indent: 2em;">There are about 60,000 sea lions living in the Daigo Cape area of Walvis Bay, Namibia. What many people don't know is that sea lions are very playful and like to play with anything they can find like a child. For example, fishermen often use lines made of strong plastic in order to catch more fish. Once these discarded fishing lines are wrapped around the sea lion's neck, it is difficult to get off. As the sea lion grows up, the fishing line will become tighter and tighter around its neck, threatening its life. </p>
+       <p style="text-indent: 2em;">Nord Dreyer, the founder of the Namibia Marine Conservation Team, and other members of the team, come to Daigo Cape and other areas at least 3 times a week. With excellent observation skills, teamwork and rich experience, they will lock the sea lions bound by ropes very accurately every time. Nord Dreyer said: "We have a lot of experience. We stay on the beach for hours at a time. We use binoculars to watch the sea lion colony, look for the entangled sea lion, and once we lock the target, we will run or Crawling over, we will also use kayaks and other technical means to make our work better."</p>
+       <p style="text-indent: 2em;">Speaking of the origin of the establishment of the Marine Conservation Team, Nord Dreyer told reporters that he used to be a local tourist guide and often encountered sea lions when he went out to sea And so on when marine animals get trapped. "When I see sea animals struggling, it makes me sad as a human being. I jump out of the kayak, cut the rope, and set the sea animals free. Later, we found that this happened more and more, so in In 2020, we established the Namibia Marine Conservation Team."</p>
+       <p style="text-indent: 2em;">Helping sea lions and other marine animals is now an important part of Nord Dreyer's life. Completing this task requires multiple devices and teamwork. So far, they have rescued more than 3,200 sea lions. Dreyer said: "Some of the small sea lions we can assist with bare hands. If they are about a year old, we use this small mesh bag, run over and hold them in the back, and this big mesh bag can hold them. Sea lions weighing up to 200 kg have two zippers, which require two people to work together. The other person opens the zipper, finds the entangled object, and solves it. This is a means of protecting ourselves, because these animals are very strong, and once bitten Serious."</p>
+       <p style="text-indent: 2em;">Despite taking many measures, Dreyer admitted frankly that due to unpredictable situations, his own injuries are inevitable. But with his love for the ocean, he remains passionate about the cause. He and his team posted the video of helping animals out of trouble on social media around the world, which aroused huge attention. In a few days, he and his team will launch a documentary on social media to record the work of the past two years and arouse more people's awareness of protecting the earth and the environment. "The whole point of the documentary is to educate the public about the impact of plastic on the environment, we have to change our behavior because there is no magic button to take back plastic. We can start with small things around us, we must protect the ocean, and it is for ourselves The fate of the future."</p>
+       </div>
+       </div>
+       <div class="material">Article: Protecting Marine Animals - Namibia Marine Conservation Team<br>
+       <div style="display: flex; align-items: center; justify-content: center"><button id="popup-button2" onclick="document.getElementById('myModal').style.display='block' ">View full text</button></div></div>
+        <!-- popup container -->
+        <div id="popup2">
+          <!-- popup close button -->
+          <button id="popup-close2">X</button>
+          <!-- popup content -->
+          <div id="popup-content2">
+          <h3><div style="text-align:center">Protecting Marine Animals—Namibia Marine Conservation Team<br>Authors: Chen Cheng, Deng Min Source: Xinhua News Agency</div></h3>
+          <p style="text-indent: 2em;">More than 200,000 Cape fur seals live in the Namibian coastal cities of Walvis Bay and Swakopmund. There is a group of volunteers who are affectionately called "Seal Team" by Chinese netizens. They have been active in different locations along the coastline for a long time, using homemade tools to rescue Cape fur seals that are troubled by floating marine garbage such as fishing nets, fishhooks, and plastic bags. . </p>
+          <p style="text-indent: 2em;">The Namibia Marine Conservation Team was established in 2020. It is a non-governmental organization. It has expanded from the initial small team of three to the current seven-member team, all of whom live nearby volunteer.
+            </p>
+          </div>
+          </div>
+      <div class="video">
+        <img src="video3.jpg" class="video-image">
+        <div class="play-button">
+          <img src="play.png" class="play-icon">
+        </div>
+        <div class="video-title">Mixed clipping of videos posted on social platforms such as Namibia Marine Conservation Team B</div>
+      </div>
+    </div>
+    <div class="right-section">
+      <div class="video">
+        <img src="video1.jpg" class="video-image">
+        <div class="play-button">
+          <img src="play.png" class="play-icon">
+        </div>
+        <div class="video-title">World Environment Day——Meet the Namibian Ocean Guardian who helped sea lions out of trouble</div>
+      </div>
+      <div class="material">Little sea lion entangled in plastic wrap, affecting the sea lion's breathing and swimming</div>
+      <div class="video">
+        <img src="video2.jpg" class="video-image">
+        <div class="play-button">
+          <img src="play.png" class="play-icon">
+        </div>
+        <div class="video-title">Protect marine animals - Namibia Marine Conservation Team</div>
+      </div>
+      <div class="material">Rescue of pregnant female sea lion cut by thin fishing line</div>
+    </div>
+    <img src="stamp. png" class="stamp">
+  </div>
+  <script>
+     // 获取所有的视频元素
+// 获取所有的视频元素
+var videos = document.getElementsByClassName("video");
+
+// 定义一个数组，存放每个视频对应的源
+var videoSources = ["https://b23.tv/DXZuEpd", "https://b23.tv/bIqgo6B", "https://www.thepaper.cn/newsDetail_forward_20530138"];
+
+// 遍历每个视频元素，为它们添加点击事件
+for (var i = 0; i < videos.length; i++) {
+  videos[i].addEventListener("click", function() {
+    // 获取当前点击的视频的索引
+    var index = Array.prototype.indexOf.call(videos, this);
+
+    // 获取当前点击的视频对应的源
+    var videoSource = videoSources[index];
+
+    // 跳转到对应的网页
+    window.location.href = videoSource;
+  });
+}
+
+// 获取搜索框和搜索按钮
+var searchInput = document.querySelector(".search-input");
+var searchButton = document.querySelector(".search-button");
+
+// 为搜索按钮添加点击事件
+searchButton.addEventListener("click", function() {
+  // 获取搜索框中输入的关键词
+  var keyword = searchInput.value;
+
+  // 如果关键词不为空，就跳转到百度搜索结果页面，否则提示用户输入关键词
+  if (keyword) {
+    window.location.href = "https://www.baidu.com/s?wd=" + keyword;
+  } else {
+    alert("请输入关键词");
+  }
+});
+// 获取弹窗按钮，弹窗容器和弹窗关闭按钮元素
+// 获取弹窗按钮，弹窗容器和弹窗关闭按钮元素
+var button = document.getElementById("popup-button");
+var popup = document.getElementById("popup");
+var close = document.getElementById("popup-close");
+var button2 = document.getElementById("popup-button2");
+var popup2 = document.getElementById("popup2");
+var close2 = document.getElementById("popup-close2");
+
+// 给弹窗按钮添加点击事件
+button.addEventListener("click", function() {
+  // 显示弹窗
+  popup.style.display = "block";
+});
+
+// 给弹窗关闭按钮添加点击事件
+close.addEventListener("click", function() {
+  // 隐藏弹窗
+  popup.style.display = "none";
+});
+
+button2.addEventListener("click", function() {
+  // 显示弹窗
+  popup2.style.display = "block";
+});
+
+// 给弹窗关闭按钮添加点击事件
+close2.addEventListener("click", function() {
+  // 隐藏弹窗
+  popup2.style.display = "none";
+});
+   </script>
+ </body>
+</html>

@@ -2,8 +2,8 @@
 <head>
   <style>
     body {
-      background-color: pink;
-      font-family: "Microsoft YaHei";
+      background-color: #1bafd0;
+      font-family: "Microsoft Song";
     }
 
     .container {
@@ -13,18 +13,30 @@
     }
 
     .left-section {
-      width: 50%;
-      margin-right: 20px;
+      width: 70%;
+      margin-right: 50px;
     }
 
     .right-section {
-      width: 50%;
+      width: 70%;
     }
 
     .title {
       text-align: center;
       font-size: 36px;
       font-weight: bold;
+    }
+
+    .title2 {
+      background-color: #88eaeb;
+      text-align: center;
+      border-radius: 25px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 35px;
+      margin-bottom: 15px;
+      marquee-style: scroll;
+      marquee-direction: alternate;
+      overflow: auto;
     }
 
     .search-bar {
@@ -55,8 +67,14 @@
     }
 
     .material {
+      background-color: #fb00ff3d;
       margin-top: 20px;
       font-size: 18px;
+      border-radius: 25px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 35px;
+      margin-bottom: 15px;
+      overflow: auto;
     }
 
     .video {
@@ -88,7 +106,8 @@
 
     .video-title {
       margin-top: 10px;
-      font-size: 24px;
+      text-align: center;
+      font-size: auto;
     }
 
     .stamp {
@@ -100,24 +119,166 @@
        transform; rotate(15deg); 
        z-index; -1; 
      }
+     #popup-button {
+      display: none; /* 隐藏弹窗 */
+      overflow: auto; /* 允许滚动 */
+      border-radius: 25px;
+      background-color: #4c6e29b6; /* 背景颜色 */
+      border: none; /* 去掉边框 */
+      color: white; /* 字体颜色 */
+      padding: 16px 32px; /* 内边距 */
+      text-align: center; /* 文字居中 */
+      text-decoration: none; /* 去掉下划线 */
+      display: block;
+      margin: 0 auto;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.6s; /* 过渡效果持续时间 */
+      cursor: pointer;
+}
+p{text-indent: 50px;}
+/* 弹窗容器的样式 */
+#popup {
+  z-index: 9999;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto; /* 允许滚动 */
+  width: auto;
+  height: auto;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed; /* 使用固定定位 */
+  top: 50%; /* 距离顶部50% */
+  left: 50%; /* 距离左边50% */
+  transform: translate(-50%, -50%); /* 使用变换，将弹窗居中 */
+  display: none; /* 默认隐藏弹窗 */
+}
+
+/* 弹窗内容的样式 */
+#popup-content {
+  padding: 20px;
+}
+
+/* 弹窗关闭按钮的样式 */
+#popup-close {
+  width: 36px;
+  height: 36px;
+  background-color: rgb(181, 111, 111);
+  border: none;
+  position: absolute; /* 使用绝对定位 */
+  top: 0px; /* 距离顶部-10px */
+  right: 0px; /* 距离右边-10px */
+}
+#popup-button2 {
+      display: none; /* 隐藏弹窗 */
+      overflow: auto; /* 允许滚动 */
+      border-radius: 25px;
+      background-color: #4c6e29b6; /* 背景颜色 */
+      border: none; /* 去掉边框 */
+      color: white; /* 字体颜色 */
+      padding: 16px 32px; /* 内边距 */
+      text-align: center; /* 文字居中 */
+      text-decoration: none; /* 去掉下划线 */
+      display: block;
+      margin: 0 auto;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.6s; /* 过渡效果持续时间 */
+      cursor: pointer;
+}
+p{text-indent: 50px;}
+/* 弹窗容器的样式 */
+#popup2 {
+  z-index: 9999;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto; /* 允许滚动 */
+  width: auto;
+  height: auto;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed; /* 使用固定定位 */
+  top: 50%; /* 距离顶部50% */
+  left: 50%; /* 距离左边50% */
+  transform: translate(-50%, -50%); /* 使用变换，将弹窗居中 */
+  display: none; /* 默认隐藏弹窗 */
+}
+
+/* 弹窗内容的样式 */
+#popup-content2 {
+  padding: 20px;
+}
+
+/* 弹窗关闭按钮的样式 */
+#popup-close2 {
+  width: 36px;
+  height: 36px;
+  background-color: rgb(181, 111, 111);
+  border: none;
+  position: absolute; /* 使用绝对定位 */
+  top: 0px; /* 距离顶部-10px */
+  right: 0px; /* 距离右边-10px */
+}
+     #popup-button:hover {
+      background-color: #3e8e41;
+     }
+
    </style>
  </head>
+ <!-- 这是一个示例代码，你可以根据你的需要修改它 -->
+    <a href="en.html" style="position: absolute; top: 0; right: 0; display: block; width: 100px; height: 50px; background-color: blue; color: white; text-align: center; line-height: 50px;">English</a>
+    <div class="title">海洋卫士——纳米比亚海洋保护队</div><br><br>
+    <div class="title2"><marquee>大家好！我们是纳米比亚海洋保护协会(OCN)，是在纳米比亚沃尔维斯湾成立的非政府组织。
+    纳米比亚沿海生存着大约150万只珍贵的海狮。它们遭受着非法丢弃的渔具和其他海洋废弃物的缠绕并将它们折磨致死的威胁。
+    我们的主要目标是结束海岸海洋野生动物被缠绕的问题。目前，我们团队由纳米比亚自然保护主义者诺德·德雷耶领导，由三名热心的活动人士组成。
+    我们得到的关注越多，就越容易改变海狮的现状。感谢观看订阅我们的频道并分享我们的讯息，社交媒体的力量正在帮助我们继续并完善我们的工作。谢谢大家！
+    </marquee></div><br><br>
  <body>
    <div class="container">
      <div class="left-section">
-       <div class="title">融媒体页面示例</div>
        <div class="search-bar">
          <input type="text" class="search-input" placeholder="请输入关键词">
          <button type="button" class="search-button">搜索</button>
        </div>
-       <div class="material">这是一段关于融媒体的介绍，你可以在这里写一些内容。</div>
-       <div class="material">这是另一段关于融媒体的介绍，你可以在这里写一些内容。</div>
+       <div class="material">文章：世界环境日——走近帮助海狮脱困的纳米比亚海洋卫士<br>
+       <div style="display: flex; align-items: center; justify-content: center"><button id="popup-button" onclick="document.getElementById('myModal').style.display='block'">查看全文</button></div></div>
+      <!-- 弹窗容器 -->
+      <div id="popup">
+        <!-- 弹窗关闭按钮 -->
+        <button id="popup-close">X</button>
+        <!-- 弹窗内容 -->
+        <div id="popup-content">
+        <h3><div style="text-align:center">世界环境日——走近帮助海狮脱困的纳米比亚海洋卫士<br>作者：马培敏 来源：国际在线</div></h3>
+        <p style="text-indent: 2em;">今天(6月5日)是世界环境日，今年世界环境日重点注塑料污染的解决方案。在纳米比亚的沿海地区，生活着大约150万头海狮，人类的经济社会活动产生的海洋垃圾，严重威胁着这些海洋动物的生存环境。废弃的塑料，一旦缠绕到海狮的脖子上，就很难脱落。当地的环保组织如何帮助这些海狮脱困呢？</p>
+        <p style="text-indent: 2em;">在纳米比亚沃尔维斯湾的醍醐角地区，大约生活着6万只海狮。很多人并不了解，海狮其实非常贪玩，他们喜欢像小孩子一样玩他们能找到的任何东西。比如，渔民为了捕获更多的鱼通常会使用结实的塑料所制作的鱼线。一旦这些被废弃的鱼线缠绕到海狮的脖子上，就很难脱落。而随着海狮长大，鱼线会在它脖子上越缠越紧，进而威胁生命。</p>
+        <p style="text-indent: 2em;">纳米比亚海洋保护队的创始人诺德·德雷耶和团队的其他成员，每周都会来到醍醐角等地区至少3次。凭借出色的观察能力、团队协作和丰富的经验，每次他们都会十分精准地锁定被绳子缠绕束缚的海狮。诺德·德雷耶说：“我们有着丰富的经验，我们在海滩上一待就是数个小时，我们用望远镜盯着海狮群、寻找被缠住的海狮，我们一旦锁定目标，我们会跑或者爬行过去，也会使用皮划艇等各种技术手段，让我们的工作更好地开展。”</p>
+        <p style="text-indent: 2em;">说起成立海洋保护队的缘起，诺德·德雷耶告诉记者，他曾经是当地的一名旅游向导，出海的时候，经常会遇到海狮等海洋动物被困的情况。“当我看到海洋动物痛苦挣扎的时候，作为人类我感到难过。我会跳下皮艇，剪下绳子，让海洋动物重获自由。后来，我们发现这种情况越来越多，于是在2020年我们便成立了纳米比亚海洋保护队。”</p>
+        <p style="text-indent: 2em;">帮助海狮等海洋动物，现在成了诺德·德雷耶生活中重要的一部分。而完成这项任务，需要多种设备以及团队协作。目前，他们已经解救了超过3200只海狮。德雷耶说：“一些小的海狮我们可以徒手协助，如果是一岁左右的，我们使用这个小的网袋，跑过去在后面将把它们扣住，而这只大的网袋可以扣住重达200公斤的海狮，有两个拉链，需要两个人合力完成，另外一人打开拉链，找到被缠绕物，解决它。这个是保护我们自己的手段，因为这些动物很强壮，一旦被咬的话很严重。”</p>
+        <p style="text-indent: 2em;">尽管采取了多钟手段，德雷耶坦言，由于不可预测的情况发生，自身受伤也在所难免。不过凭着对海洋的热爱，他依然对这项事业充满激情。他和团队把帮助动物脱困的视频，发布在全球社交媒体上，引发了巨大关注。再过几天，他和团队要在社交媒体上线一部纪录片，记录过去两年多的工作，唤起更多人保护地球、保护环境的意识。“纪录片的主题就是向公众介绍塑料对环境的影响，我们必须改变我们的行为，因为没有收回塑料的神奇按钮。我们可以从自己的身边的小事做起，我们必须保护海洋，这也是为了人类自己未来的命运。”</p>
+        </div>
+        </div>
+        <div class="material">文章：守护海洋动物——纳米比亚海洋保护队<br>
+        <div style="display: flex; align-items: center; justify-content: center"><button id="popup-button2" onclick="document.getElementById('myModal').style.display='block'">查看全文</button></div></div>
+         <!-- 弹窗容器 -->
+         <div id="popup2">
+           <!-- 弹窗关闭按钮 -->
+           <button id="popup-close2">X</button>
+           <!-- 弹窗内容 -->
+           <div id="popup-content2">
+           <h3><div style="text-align:center">守护海洋动物——纳米比亚海洋保护队<br>作者：陈诚、邓敏 来源：新华社</div></h3>
+           <p style="text-indent: 2em;">在纳米比亚海滨城市鲸湾和斯瓦科普蒙德，超过20万只开普毛皮海豹生活在此。有一群被中国网友亲切地称为“海豹突击队”的志愿者们，长期活跃在海岸线不同的地点，用自制工具解救被渔网、鱼钩、塑料袋等海洋漂浮垃圾所困扰的开普毛皮海豹。</p>
+           <p style="text-indent: 2em;">纳米比亚海洋保护队成立于2020年，是一个非政府组织，由最初的三人小团队扩大到现在的七人团队，队员都是居住在附近的志愿者。
+             </p>
+           </div>
+           </div>
        <div class="video">
          <img src="video3.jpg" class="video-image">
          <div class="play-button">
            <img src="play.png" class="play-icon">
          </div>
-         <div class="video-title">融媒体的实践案例和经验分享</div>
+         <div class="video-title">纳米比亚海洋保护队B站等社交平台所发布的视频的混剪</div>
        </div>
      </div>
      <div class="right-section">
@@ -126,37 +287,39 @@
          <div class="play-button">
            <img src="play.png" class="play-icon">
          </div>
-         <div class="video-title">融媒体的定义和特点</div>
+         <div class="video-title">世界环境日——走近帮助海狮脱困的纳米比亚海洋卫士</div>
        </div>
-       <div class="material">这是一段关于融媒体的定义和特点的材料，你可以在这里写一些内容。</div>
+       <div class="material">被保鲜膜缠住的小海狮，影响了海狮的呼吸和游泳</div>
        <div class="video">
          <img src="video2.jpg" class="video-image">
          <div class="play-button">
            <img src="play.png" class="play-icon">
          </div>
-         <div class="video-title">融媒体的发展历程和趋势</div>
+         <div class="video-title">守护海洋动物——纳米比亚海洋保护队</div>
        </div>
-       <div class="material">这是一段关于融媒体的发展历程和趋势的材料，你可以在这里写一些内容。</div>
+       <div class="material">救援被细细鱼线割伤的怀孕雌性海狮</div>
      </div>
      <img src="stamp.png" class="stamp">
    </div>
    <script>
      // 获取所有的视频元素
+// 获取所有的视频元素
 var videos = document.getElementsByClassName("video");
+
+// 定义一个数组，存放每个视频对应的源
+var videoSources = ["https://b23.tv/DXZuEpd", "https://b23.tv/bIqgo6B", "https://www.thepaper.cn/newsDetail_forward_20530138"];
 
 // 遍历每个视频元素，为它们添加点击事件
 for (var i = 0; i < videos.length; i++) {
   videos[i].addEventListener("click", function() {
-    // 获取当前点击的视频的图片和标题
-    var videoImage = this.querySelector(".video-image").src;
-    var videoTitle = this.querySelector(".video-title").textContent;
+    // 获取当前点击的视频的索引
+    var index = Array.prototype.indexOf.call(videos, this);
 
-    // 创建一个新的窗口，用来播放视频
-    var videoWindow = window.open("", "videoWindow", "width=800, height=600");
+    // 获取当前点击的视频对应的源
+    var videoSource = videoSources[index];
 
-    // 在新窗口中添加一个视频播放器，设置它的源为图片的源，设置它的标题为标题
-    videoWindow.document.write("<h1>" + videoTitle + "</h1>");
-    videoWindow.document.write("<video src='" + videoImage + "' controls autoplay></video>");
+    // 跳转到对应的网页
+    window.location.href = videoSource;
   });
 }
 
@@ -176,8 +339,36 @@ searchButton.addEventListener("click", function() {
     alert("请输入关键词");
   }
 });
+// 获取弹窗按钮，弹窗容器和弹窗关闭按钮元素
+var button = document.getElementById("popup-button");
+var popup = document.getElementById("popup");
+var close = document.getElementById("popup-close");
+var button2 = document.getElementById("popup-button2");
+var popup2 = document.getElementById("popup2");
+var close2 = document.getElementById("popup-close2");
+
+// 给弹窗按钮添加点击事件
+button.addEventListener("click", function() {
+  // 显示弹窗
+  popup.style.display = "block";
+});
+
+// 给弹窗关闭按钮添加点击事件
+close.addEventListener("click", function() {
+  // 隐藏弹窗
+  popup.style.display = "none";
+});
+
+button2.addEventListener("click", function() {
+  // 显示弹窗
+  popup2.style.display = "block";
+});
+
+// 给弹窗关闭按钮添加点击事件
+close2.addEventListener("click", function() {
+  // 隐藏弹窗
+  popup2.style.display = "none";
+});
    </script>
  </body>
 </html>
-
-```
